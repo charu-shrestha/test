@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake with Clickable Heart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .cake-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .cake-image {
+            margin-left: 0px;
+            max-width: 90%;
+            height: auto;
+        }
+
+        .clickable-heart {
+                position: absolute;
+                top: 60%;
+                left: 26%;
+                transform: translate(-50%, -50%);
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+        }
+
+        .candles1 {
+            position: absolute;
+            top: 47%;
+            left: 74%;
+            transform: translate(-50%, -48%);
+            display: grid;
+            grid-template-columns: repeat(7, auto);
+            grid-template-rows: repeat(3, auto);
+            grid-gap: 10px;
+            width: 39%;
+            justify-content: space-evenly;
+        }
+        .candles2 {
+            position: absolute;
+    top: 57%;
+    left: 73%;
+    transform: translate(-50%, -48%);
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 13px;
+    width: 31%;
+    justify-content: center;
+        }
+
+        .candles1,.candles2 div:nth-child(odd) {
+            grid-column-start: span 1;
+        }
+
+        .candle {
+            width: 10px;
+            height: 30px;
+            background-color: #ffd700;
+            position: relative;
+            animation: flicker 0s infinite alternate;
+        }
+
+        .flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 20px;
+            background-color: #ff4500;
+            border-radius: 50%;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes blowOut {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cake-container">
+    <img src="cake.png" alt="Cake" class="cake-image">
+    
+    <!-- Clickable heart area -->
+    <a href="hbd3.html" class="clickable-heart"></a>
+    
+    <div class="candles1">
+        <!-- Creating 14 candles alternately in 2 rows -->
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+    <div class="candles2">  
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        
+    </div>
+   
+</div>
+
+<script>
+    
+    setTimeout(function() {
+        const flames = document.querySelectorAll('.flame');
+        flames.forEach(flame => {
+            
+            const delay = Math.random() * 2000;
+            setTimeout(() => {
+                flame.style.animation = 'blowOut 2s forwards';
+            }, delay);
+        });
+    }, 2000); // Start blowing out after 5 seconds
+</script>
+
+</body>
+</html>

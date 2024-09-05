@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .card-container {
+            text-align: center;
+            transform: scale(0.5); /* Start with a smaller scale */
+            animation: pop 1s forwards; /* Pop effect */
+            position: relative;
+        }
+
+        @keyframes pop {
+            to {
+                transform: scale(1); /* Scale to full size */
+            }
+        }
+
+        .card-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .heart-link {
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            cursor: pointer;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <img src="hbd.png" alt="Birthday Card" class="card-image">
+    <a href="hbd2.html" class="heart-link"></a>
+</div>
+
+</body>
+</html>
